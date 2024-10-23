@@ -45,7 +45,7 @@ const Banner = ({ mediaInfo }) => {
           <div className="mt-4 flex items-center gap-4">
             <div className="flex items-center gap-2">
               <CircularProgressBar
-                percent={Math.round(mediaInfo.vote_average * 10)}
+                percent={Math.round(mediaInfo?.vote_average || 0 * 10)}
                 size={3.5}
                 strokeWidth={0.3}
               />
