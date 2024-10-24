@@ -5,38 +5,44 @@ import Banner from "@components/MediaDetail/Banner";
 import ActorList from "@components/MediaDetail/ActorList";
 import RelatedMediaList from "@components/MediaDetail/RelatedMediaList";
 import MovieInfo from "@components/MediaDetail/MovieInfo";
+import useFetch from "@hooks/useFetch";
 
 const MovieDetail = () => {
   const { id } = useParams();
 
-  const [movieInfo, setMovieInfo] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  // const [movieInfo, setMovieInfo] = useState({});
+  // const [isLoading, setIsLoading] = useState(false);
   const [relatedMovies, setRelatedMovies] = useState([]);
   const [isRelatedLoading, setIsRelatedLoading] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?append_to_response=release_dates,credits,videos`,
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
-        },
-      },
-    )
-      .then(async (res) => {
-        const data = await res.json();
-        setMovieInfo(data);
-      })
-      .catch((e) => {
-        console.error(e);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [id]);
+  const { data: movieInfo, isLoading } = useFetch({
+    url: `/movie/${id}?append_to_response=release_dates,credits,videos`,
+  });
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   fetch(
+  //     `https://api.themoviedb.org/3/movie/${id}?append_to_response=release_dates,credits,videos`,
+  //     {
+  //       method: "GET",
+  //       headers: {
+  //         accept: "application/json",
+  //         Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+  //       },
+  //     },
+  //   )
+  //     .then(async (res) => {
+  //       const data = await res.json();
+  //       setMovieInfo(data);
+  //     })
+  //     .catch((e) => {
+  //       console.error(e);
+  //     })
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // }, [id]);
+
   useEffect(() => {
     setIsRelatedLoading(true);
     fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations`, {
