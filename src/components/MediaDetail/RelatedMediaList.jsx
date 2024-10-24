@@ -4,7 +4,7 @@ const RelatedMediaList = ({ mediaList = [] }) => {
   return (
     <div className="mt-4">
       <p className="mb-4 text-[1.4vw] font-bold">Related</p>
-      <div>
+      <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
         {mediaList.map((media) => {
           return (
             <MovieCard
