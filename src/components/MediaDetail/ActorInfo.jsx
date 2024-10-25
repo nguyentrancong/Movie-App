@@ -1,11 +1,15 @@
+import ImageBlur from "@components/Image";
+
 const ActorInfo = ({ id, name, character, profilePath }) => {
   return (
     <div className="overflow-hidden rounded-lg border border-slate-300 bg-black shadow-sm">
-      <img
+      <ImageBlur
         className="w-full rounded-lg"
+        width={276}
+        height={350}
         src={
           profilePath
-            ? `https://media.themoviedb.org/t/p/w138_and_h175_face${profilePath}`
+            ? `https://media.themoviedb.org/t/p/w276_and_h350_face${profilePath}`
             : "/ActorNoImage.svg"
         }
         alt=""

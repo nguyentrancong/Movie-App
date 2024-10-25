@@ -2,6 +2,7 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircularProgressBar from "../MediaList/CircularProgressBar";
 import { groupBy } from "lodash";
+import ImageBlur from "@components/Image";
 
 const Banner = ({ mediaInfo }) => {
   const certification = (
@@ -18,15 +19,17 @@ const Banner = ({ mediaInfo }) => {
 
   return (
     <div className="relative overflow-hidden text-white">
-      <img
+      <ImageBlur
         className="absolute inset-0 aspect-video w-full brightness-[0.2]"
         src={`https://media.themoviedb.org/t/p/original${mediaInfo?.backdrop_path}`}
         alt=""
       />
       <div className="relative mx-auto flex max-w-screen-xl gap-6 p-6 sm:gap-8">
         <div className="flex-1">
-          <img
-            src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${mediaInfo?.poster_path}`}
+          <ImageBlur
+            width={600}
+            height={900}
+            src={`https://media.themoviedb.org/t/p/w600_and_h900_bestv2${mediaInfo?.poster_path}`}
             alt=""
           />
         </div>
