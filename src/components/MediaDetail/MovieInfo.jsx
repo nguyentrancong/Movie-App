@@ -1,3 +1,4 @@
+import ImageBlur from "@components/Image";
 import { currencyFormatter } from "@libs/utils";
 
 const MovieInfo = ({ mediaInfo = {} }) => {
@@ -13,7 +14,7 @@ const MovieInfo = ({ mediaInfo = {} }) => {
         <p>
           {(mediaInfo?.origin_country || []).map((item) => {
             return (
-              <img
+              <ImageBlur
                 key={item}
                 src={`https://flagcdn.com/48x36/${item.toLowerCase()}.png`}
                 className="mr-1 mt-1 w-[1.4vw]"

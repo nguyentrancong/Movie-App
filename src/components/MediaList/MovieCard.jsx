@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CircularProgressBar from "./CircularProgressBar";
+import ImageBlur from "@components/Image";
 
 const MovieCard = ({ id, title, releaseDate, poster, point, mediaType }) => {
   return (
@@ -15,8 +16,10 @@ const MovieCard = ({ id, title, releaseDate, poster, point, mediaType }) => {
             Movie
           </p>
         )}
-        <img
-          className="rounded-lg"
+        <ImageBlur
+          className="w-full rounded-lg"
+          width={210}
+          height={300}
           src={`https://image.tmdb.org/t/p/w500${poster}`}
           alt=""
         />
