@@ -6,6 +6,7 @@ import TVShowDetail from "@pages/TVShowDetail";
 import RootLayout from "@pages/RootLayout";
 import HomePage from "@pages/HomePage";
 import MovieDetail from "@pages/MovieDetail";
+import ModalProvider from "@components/context/ModalProvider";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
-    {/* <App /> */}
+    <ModalProvider>
+      <RouterProvider router={router} />
+    </ModalProvider>
   </StrictMode>,
 );

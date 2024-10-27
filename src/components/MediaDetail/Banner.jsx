@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircularProgressBar from "../MediaList/CircularProgressBar";
 import { groupBy, take } from "lodash";
 import ImageBlur from "@components/Image";
+import { useModalContext } from "@components/context/ModalProvider";
 
 const Banner = ({
   title,
@@ -14,11 +15,15 @@ const Banner = ({
   genres,
   point = 0,
   overview,
+  trailerVideoKey,
 }) => {
+  const { setIsShowing, setContent } = useModalContext();
+
   const groupByCrews = groupBy(crews, "job");
 
   if (!title) return null;
 
+  console.log(`------->>>>`, trailerVideoKey);
   return (
     <div className="relative overflow-hidden bg-black text-white">
       <ImageBlur
@@ -56,7 +61,18 @@ const Banner = ({
               />
               Rating
             </div>
-            <button>
+            <button
+              onClick={() => {
+                setIsShowing(true);
+                setContent(
+                  <iframe
+                    title="Trailer"
+                    src={`https://www.youtube.com/embed/${trailerVideoKey}`}
+                    className="aspect-video w-[65vw]"
+                  />,
+                );
+              }}
+            >
               <FontAwesomeIcon icon={faPlay} className="mr-2" />
               Trailer
             </button>
