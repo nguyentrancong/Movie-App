@@ -23,7 +23,6 @@ const Banner = ({
 
   if (!title) return null;
 
-  console.log(`------->>>>`, trailerVideoKey);
   return (
     <div className="relative overflow-hidden bg-black text-white">
       <ImageBlur

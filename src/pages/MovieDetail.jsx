@@ -45,6 +45,11 @@ const MovieDetail = () => {
           overview={movieInfo.overview}
           certification={certification}
           crews={crews}
+          trailerVideoKey={
+            (movieInfo.videos?.results || []).find((video) => {
+              return video.type === "Trailer";
+            })?.key
+          }
         />
         <div className="bg-black text-[1.2vw] text-white">
           <div className="mx-auto flex max-w-screen-xl gap-6 px-6 py-10 sm:gap-8">
