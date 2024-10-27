@@ -4,6 +4,7 @@ import Banner from "@components/MediaDetail/Banner";
 import ActorList from "@components/MediaDetail/ActorList";
 import RelatedMediaList from "@components/MediaDetail/RelatedMediaList";
 import useFetch from "@hooks/useFetch";
+import TvShowInfo from "@components/MediaDetail/TvShowInfo";
 
 const TVShowDetail = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const TVShowDetail = () => {
   const { data: getRelatedMovies, isLoading: isRelatedLoading } = useFetch({
     url: `/tv/${id}/recommendations`,
   });
-  const relatedMovies = getRelatedMovies?.results || [];
+  const relatedTvShow = getRelatedMovies?.results || [];
 
   const certification = (tvInfo?.content_ratings?.results || []).find(
     (result) => result.iso_3166_1 === "US",
@@ -59,11 +60,13 @@ const TVShowDetail = () => {
                 })}
               />
               <RelatedMediaList
-                mediaList={relatedMovies}
+                mediaList={relatedTvShow}
                 isLoading={isRelatedLoading}
               />
             </div>
-            <div className="flex-1">{/* <tvInfo mediaInfo={tvInfo} /> */}</div>
+            <div className="flex-1">
+              <TvShowInfo mediaInfo={tvInfo} />
+            </div>
           </div>
         </div>
       </div>

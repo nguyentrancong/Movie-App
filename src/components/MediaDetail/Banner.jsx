@@ -1,7 +1,7 @@
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircularProgressBar from "../MediaList/CircularProgressBar";
-import { groupBy } from "lodash";
+import { groupBy, take } from "lodash";
 import ImageBlur from "@components/Image";
 
 const Banner = ({
@@ -76,7 +76,12 @@ const Banner = ({
               return (
                 <div key={job}>
                   <p className="font-bold">{job}</p>
-                  <p>{groupByCrews[job].map((crew) => crew.name).join(", ")}</p>
+                  <p>
+                    {take(
+                      groupByCrews[job].map((crew) => crew.name),
+                      2,
+                    ).join(", ")}
+                  </p>
                 </div>
               );
             })}
