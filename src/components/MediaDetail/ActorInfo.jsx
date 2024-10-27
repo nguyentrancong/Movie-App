@@ -17,9 +17,11 @@ const ActorInfo = ({ name, character, profilePath, episodeCount }) => {
       <div className="p-3">
         <p className="font-bold">{name}</p>
         <p>{character}</p>
-        <p>
-          {episodeCount} {episodeCount > 1 ? "Episodes" : "Episode"}
-        </p>
+        {episodeCount && (
+          <p>
+            {episodeCount} {episodeCount > 1 ? "Episodes" : "Episode"}
+          </p>
+        )}
       </div>
     </div>
   );

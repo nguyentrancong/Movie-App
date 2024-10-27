@@ -13,10 +13,10 @@ const SeasonList = ({ seasons = [] }) => {
               className="flex gap-4 rounded-lg border border-slate-200 p-3 shadow-md"
             >
               <ImageBlur
-                height={195}
-                width={130}
-                className="h-[195] w-[130] rounded-lg"
-                src={`https://media.themoviedb.org/t/p/w130_and_h195_face${season.poster_path}`}
+                // height={195}
+                // width={130}
+                className="w-1/4 rounded-lg"
+                src={`https://media.themoviedb.org/t/p/w300${season.poster_path}`}
               />
               <div className="space-y-1">
                 <p className="text-[1.4vw] font-bold">{season.name}</p>

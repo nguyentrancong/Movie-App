@@ -17,9 +17,13 @@ const Banner = ({
 }) => {
   const groupByCrews = groupBy(crews, "job");
 
+  if (!title) return null;
+
   return (
     <div className="relative overflow-hidden bg-black text-white">
       <ImageBlur
+        width={1200}
+        height={800}
         className="absolute inset-0 aspect-video w-full brightness-[0.2]"
         src={`https://media.themoviedb.org/t/p/original${backdropPath}`}
         alt=""
