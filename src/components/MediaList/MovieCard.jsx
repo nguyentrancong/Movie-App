@@ -4,7 +4,10 @@ import ImageBlur from "@components/Image";
 
 const MovieCard = ({ id, title, releaseDate, poster, point, mediaType }) => {
   return (
-    <Link to={`/movie/${id}`} className="rounded-lg border border-slate-800">
+    <Link
+      to={mediaType === "tv" ? `/tv/${id}` : `/movie/${id}`}
+      className="rounded-lg border border-slate-800"
+    >
       <div className="relative">
         {mediaType === "tv" && (
           <p className="absolute right-0 rounded bg-black px-2 text-sm text-white">
