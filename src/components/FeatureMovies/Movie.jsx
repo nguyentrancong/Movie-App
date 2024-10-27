@@ -2,10 +2,11 @@ import { useModalContext } from "@components/context/ModalProvider";
 import ImageBlur from "@components/Image";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const Movie = (props) => {
   const {
-    data: { backdrop_path, title, overview, release_date },
+    data: { id, backdrop_path, title, overview, release_date },
     trailerVideoKey,
   } = props;
 
@@ -48,9 +49,11 @@ const Movie = (props) => {
             >
               <FontAwesomeIcon icon={faPlay} /> Trailer
             </button>
-            <button className="rounded bg-slate-300/35 px-4 py-2 text-10 lg:text-lg">
-              View Detail
-            </button>
+            <Link to={`/movie/${id}`}>
+              <button className="rounded bg-slate-300/35 px-4 py-2 text-10 lg:text-lg">
+                View Detail
+              </button>
+            </Link>
           </div>
         </div>
       </div>
