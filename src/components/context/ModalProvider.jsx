@@ -14,8 +14,13 @@ const ModalProvider = ({ children }) => {
     }
   }, [isShowing]);
 
+  const openPopup = (content) => {
+    setIsShowing(true);
+    setContent(content);
+  };
+
   return (
-    <ModalContext.Provider value={{ setIsShowing, setContent }}>
+    <ModalContext.Provider value={{ openPopup }}>
       {children}
       {isShowing && (
         <div className="fixed inset-0">

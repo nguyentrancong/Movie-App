@@ -17,7 +17,7 @@ const Banner = ({
   overview,
   trailerVideoKey,
 }) => {
-  const { setIsShowing, setContent } = useModalContext();
+  const { openPopup } = useModalContext();
 
   const groupByCrews = groupBy(crews, "job");
 
@@ -62,8 +62,7 @@ const Banner = ({
             </div>
             <button
               onClick={() => {
-                setIsShowing(true);
-                setContent(
+                openPopup(
                   <iframe
                     title="Trailer"
                     src={`https://www.youtube.com/embed/${trailerVideoKey}`}
