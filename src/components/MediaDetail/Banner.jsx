@@ -15,20 +15,10 @@ const Banner = ({
   point = 0,
   overview,
 }) => {
-  // const certification = (
-  //   (mediaInfo.release_dates?.results || []).find(
-  //     (result) => result.iso_3166_1 === "US",
-  //   )?.release_dates || []
-  // ).find((releaseDate) => releaseDate.certification)?.certification;
-
-  // const crews = (mediaInfo.credits?.crew || [])
-  //   .filter((crew) => ["Director", "Screenplay", "Writer"].includes(crew.job))
-  //   .map((crew) => ({ id: crew.id, job: crew.job, name: crew.name }));
-
   const groupByCrews = groupBy(crews, "job");
 
   return (
-    <div className="relative overflow-hidden text-white">
+    <div className="relative overflow-hidden bg-black text-white">
       <ImageBlur
         className="absolute inset-0 aspect-video w-full brightness-[0.2]"
         src={`https://media.themoviedb.org/t/p/original${backdropPath}`}
