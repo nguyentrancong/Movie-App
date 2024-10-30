@@ -29,7 +29,10 @@ const Banner = ({
         width={1200}
         height={800}
         className="absolute inset-0 aspect-video w-full brightness-[0.2]"
-        src={`https://media.themoviedb.org/t/p/original${backdropPath}`}
+        src={
+          backdropPath &&
+          `https://media.themoviedb.org/t/p/original${backdropPath}`
+        }
         alt=""
       />
       <div className="relative mx-auto flex max-w-screen-xl gap-6 p-6 sm:gap-8">
@@ -37,7 +40,10 @@ const Banner = ({
           <ImageBlur
             width={600}
             height={900}
-            src={`https://media.themoviedb.org/t/p/w600_and_h900_bestv2${posterPath}`}
+            src={
+              posterPath &&
+              `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${posterPath}`
+            }
             alt=""
           />
         </div>

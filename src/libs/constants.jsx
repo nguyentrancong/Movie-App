@@ -28,3 +28,10 @@ export const TOP_RATED_TABS = [
     url: "/tv/top_rated",
   },
 ];
+
+export const GENDER_MAPPING = {
+  0: "Not set/ not specified",
+  1: "Female",
+  2: "Male",
+  3: "Non-binary",
+};
