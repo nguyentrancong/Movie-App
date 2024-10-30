@@ -12,11 +12,9 @@ const ActorInfo = ({ id, name, character, profilePath, episodeCount }) => {
         width={276}
         height={350}
         src={
-          profilePath
-            ? `https://media.themoviedb.org/t/p/w276_and_h350_face${profilePath}`
-            : "/ActorNoImage.svg"
+          profilePath &&
+          `https://media.themoviedb.org/t/p/w276_and_h350_face${profilePath}`
         }
-        alt=""
       />
       <div className="p-3">
         <p className="font-bold">{name}</p>

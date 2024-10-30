@@ -1,18 +1,12 @@
 import ImageBlur from "@components/Image";
 import RelatedMediaList from "@components/MediaDetail/RelatedMediaList";
+import { GENDER_MAPPING } from "@libs/constants";
 import { useLoaderData } from "react-router-dom";
-
-const GENDER_MAPPING = {
-  0: "Not set/ not specified",
-  1: "Female",
-  2: "Male",
-  3: "Non-binary",
-};
 
 const PeoplePage = () => {
   const peopleInfo = useLoaderData();
 
-  console.log(`----------: `, peopleInfo);
+  console.log(peopleInfo.combined_credits.cast);
 
   return (
     <div className="bg-black text-white">
@@ -22,7 +16,10 @@ const PeoplePage = () => {
             height={900}
             width={600}
             className={"mb-6"}
-            src={`https://media.themoviedb.org/t/p/w600_and_h900_bestv2${peopleInfo.profile_path}`}
+            src={
+              peopleInfo.profile_path &&
+              `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${peopleInfo.profile_path}`
+            }
           />
           <p className="mb-4 text-lg font-bold">Personal Info</p>
 

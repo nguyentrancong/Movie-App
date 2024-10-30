@@ -16,7 +16,9 @@ const TvShowInfo = ({ mediaInfo = {} }) => {
             return (
               <ImageBlur
                 key={item}
-                src={`https://flagcdn.com/48x36/${item.toLowerCase()}.png`}
+                src={
+                  item && `https://flagcdn.com/48x36/${item.toLowerCase()}.png`
+                }
                 className="mr-1 mt-1 w-[1.4vw]"
               />
             );
