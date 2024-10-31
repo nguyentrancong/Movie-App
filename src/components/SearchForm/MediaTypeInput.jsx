@@ -1,5 +1,3 @@
-import React from "react";
-
 const MediaTypeInput = ({ onChange, name, value }) => {
   return (
     <div>

@@ -1,4 +1,5 @@
 import useFetch from "@hooks/useFetch";
+import { useEffect } from "react";
 import { useWatch } from "react-hook-form";
 
 const GenresInput = ({ control, onChange, value = [] }) => {
@@ -8,6 +9,10 @@ const GenresInput = ({ control, onChange, value = [] }) => {
     { url: `/genre/${mediaType}/list` },
     { enabled: mediaType },
   );
+
+  useEffect(() => {
+    onChange([]);
+  }, [mediaType, onChange]);
 
   return (
     <div className="flex flex-wrap gap-1">
