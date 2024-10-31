@@ -3,15 +3,22 @@ import FormField from "./FormField";
 import MediaTypeInput from "./MediaTypeInput";
 import GenresInput from "./GenresInput";
 import RatingInput from "./RatingInput";
+import { useEffect } from "react";
 
-const SearchForm = () => {
-  const { control, handleSubmit } = useForm({
+const SearchForm = ({ setSearchFormValue }) => {
+  const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       mediaType: "movie",
       genres: [],
       rating: "All",
     },
   });
+
+  const formValue = watch();
+  useEffect(() => {
+    setSearchFormValue(formValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(formValue)]);
 
   const onSubmit = (data) => {
     console.log(`--------data onsubmit: `, data);
