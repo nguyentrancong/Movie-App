@@ -8,7 +8,14 @@ const FormField = ({ control, label, name, Component }) => {
         name={name}
         control={control}
         render={({ field: { onChange, value, name } }) => {
-          return <Component onChange={onChange} value={value} name={name} />;
+          return (
+            <Component
+              onChange={onChange}
+              value={value}
+              name={name}
+              control={control}
+            />
+          );
         }}
       />
     </div>

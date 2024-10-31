@@ -1,7 +1,7 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import FormField from "./FormField";
 import MediaTypeInput from "./MediaTypeInput";
+import GenresInput from "./GenresInput";
 
 const SearchForm = () => {
   const { control, register, handleSubmit } = useForm();
@@ -12,18 +12,18 @@ const SearchForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* <label>Media Type</label>
-        <br />
-        <input type="radio" {...register("mediaType")} value="movie" />
-        <label>Movie</label>
-        <br />
-        <input type="radio" {...register("mediaType")} value="tv" />
-        <label>TVShow</label> */}
         <FormField
           name="mediaType"
           label="Media Type"
           control={control}
           Component={MediaTypeInput}
+        />
+
+        <FormField
+          name="genres"
+          label="Genres"
+          control={control}
+          Component={GenresInput}
         />
 
         <br />
