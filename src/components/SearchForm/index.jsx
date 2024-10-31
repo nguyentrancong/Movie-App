@@ -18,8 +18,8 @@ const SearchForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="rounded-lg border p-4 shadow-sm">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           name="mediaType"
           label="Media Type"
