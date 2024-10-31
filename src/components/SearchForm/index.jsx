@@ -5,14 +5,15 @@ import GenresInput from "./GenresInput";
 import RatingInput from "./RatingInput";
 import { useEffect } from "react";
 
-const SearchForm = ({ setSearchFormValue }) => {
-  const { control, handleSubmit, watch } = useForm({
-    defaultValues: {
-      mediaType: "movie",
-      genres: [],
-      rating: "All",
-    },
+const SearchForm = ({ setSearchFormValue, searchFormValue }) => {
+  const { control, handleSubmit, watch, reset } = useForm({
+    defaultValues: searchFormValue,
   });
+
+  useEffect(() => {
+    reset(searchFormValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(searchFormValue)]);
 
   const formValue = watch();
   useEffect(() => {
@@ -21,6 +22,7 @@ const SearchForm = ({ setSearchFormValue }) => {
   }, [JSON.stringify(formValue)]);
 
   const onSubmit = (data) => {
+    // TODO: something when using submit button
     console.log(`--------data onsubmit: `, data);
   };
 
@@ -47,9 +49,6 @@ const SearchForm = ({ setSearchFormValue }) => {
           control={control}
           Component={RatingInput}
         />
-
-        <br />
-        <input type="submit" />
       </form>
     </div>
   );

@@ -8,6 +8,7 @@ const FormField = ({ control, label, name, Component }) => {
         name={name}
         control={control}
         render={({ field: { onChange, value, name } }) => {
+          console.log(`----------xxx:`, value);
           return (
             <Component
               onChange={onChange}
