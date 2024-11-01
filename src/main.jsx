@@ -7,12 +7,14 @@ import RootLayout from "@pages/RootLayout";
 // import HomePage from "@pages/HomePage";
 // import MovieDetail from "@pages/MovieDetail";
 import ModalProvider from "@components/context/ModalProvider";
+// import SearchPage from "@pages/SearchPage";
 // import PeoplePage from "@pages/PeoplePage";
 
 const HomePage = lazy(() => import("@pages/HomePage"));
 const TVShowDetail = lazy(() => import("@pages/TVShowDetail"));
 const MovieDetail = lazy(() => import("@pages/MovieDetail"));
 const PeoplePage = lazy(() => import("@pages/PeoplePage"));
+const SearchPage = lazy(() => import("@pages/SearchPage"));
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
           );
           return res;
         },
+      },
+      {
+        path: "search/",
+        element: <SearchPage />,
       },
     ],
   },
